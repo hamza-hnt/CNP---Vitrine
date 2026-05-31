@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/data.ts","./src/main.tsx","./src/components/CodePreview.tsx","./src/components/Nav.tsx","./src/components/Reveal.tsx","./src/components/VideoModal.tsx","./src/components/icons.tsx","./src/diagrams/index.tsx"],"errors":true,"version":"5.9.3"}
