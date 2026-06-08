@@ -17,6 +17,7 @@ export const NAV = [
   { id: "architecture", label: "Architecture" },
   { id: "cicd", label: "CI/CD" },
   { id: "security", label: "Security" },
+  { id: "mcp", label: "MCP" },
   { id: "roadmap", label: "Roadmap" },
   { id: "demo", label: "Demo" },
 ];
@@ -113,6 +114,26 @@ export const CD_FILES: { path: string; role: string }[] = [
   { path: "k8s/secret.yaml", role: "Documents the runtime secret object shape." },
   { path: "k8s/deployment.yaml", role: "App deployment: image tag, replicas, port, env refs, pull secret." },
   { path: "k8s/service.yaml", role: "Exposes the app via a Kubernetes LoadBalancer for the demo." },
+];
+
+// ── MCP documentation server ────────────────────────────────────
+// An MCP server exposing CNP's own docs to AI agents.
+export const MCP_POINTS = [
+  "Smart search across the local Markdown documentation.",
+  "Reads and explains OpenAPI endpoints from the API spec.",
+  "Understands frontend routes and user journeys.",
+  "Explains the GitHub, analysis, CI, CD, secret and deployment flows.",
+  "Assists with troubleshooting of common errors.",
+  "Compatible with MCP clients such as Codex / Claude Code.",
+  "Runs fully locally — no database, no AI API key.",
+  "Turns static documentation into a usable technical assistant.",
+];
+
+export const MCP_SOURCES: { path: string; role: string }[] = [
+  { path: "apidocs/openapi.json", role: "OpenAPI spec — endpoints, schemas, parameters." },
+  { path: "apidocs/markdown/**", role: "Local Markdown documentation for the platform." },
+  { path: "frontroutes/ui-routes.json", role: "Frontend routes exposed to the agent." },
+  { path: "frontroutes/ui-routes.md", role: "Human-readable UI route & journey reference." },
 ];
 
 // ── Section 8: security control matrix ──────────────────────────

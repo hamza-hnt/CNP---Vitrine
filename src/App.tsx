@@ -4,10 +4,10 @@ import Reveal from "./components/Reveal";
 import VideoModal from "./components/VideoModal";
 import CodePreview from "./components/CodePreview";
 import {
-  ProductFlowDiagram, ArchitectureDiagram, CIDiagram, CDDiagram, SecretSequenceDiagram,
+  ProductFlowDiagram, ArchitectureDiagram, CIDiagram, CDDiagram, SecretSequenceDiagram, MCPDiagram,
 } from "./diagrams";
 import {
-  LINKS, PIPELINE, OUTCOMES, CI_POINTS, CD_FILES, CD_REPO, SECURITY, ITERATIONS,
+  LINKS, PIPELINE, OUTCOMES, CI_POINTS, CD_FILES, CD_REPO, SECURITY, MCP_POINTS, ITERATIONS,
   FUTURE, PROVIDERS, TECH_STACK, DEMO_RECEIPT,
 } from "./data";
 import {
@@ -351,11 +351,43 @@ export default function App() {
         </div>
       </section>
 
+      {/* ====================== MCP DOC SERVER ====================== */}
+      <section id="mcp">
+        <div className="shell">
+          <Reveal className="sect-head">
+            <span className="eyebrow"><span className="num">08 /</span> MCP documentation server</span>
+            <h2 className="sect-title">An MCP server to explain and use CNP from its own docs</h2>
+            <p className="sect-lead">
+              Beyond the web app and the backend API, CNP ships a dedicated MCP server that exposes its local
+              documentation, the OpenAPI spec, and the frontend routes to MCP-compatible AI agents. An assistant
+              can explain how CNP works — architecture, API endpoints, UI journeys, CI/CD generation, secrets,
+              Kubernetes deployments, troubleshooting — and use those same sources to work with the platform,
+              straight from the project's own documentation.
+            </p>
+          </Reveal>
+          <Reveal delay={60}><MCPDiagram /></Reveal>
+          <Reveal delay={100}>
+            <div className="split" style={{ marginTop: 28 }}>
+              <ul className="points">
+                {MCP_POINTS.slice(0, 4).map((p, i) => (
+                  <li key={i}><span className="mk">▹</span><span>{p}</span></li>
+                ))}
+              </ul>
+              <ul className="points">
+                {MCP_POINTS.slice(4).map((p, i) => (
+                  <li key={i}><span className="mk">▹</span><span>{p}</span></li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ====================== ROADMAP ====================== */}
       <section id="roadmap">
         <div className="shell">
           <Reveal className="sect-head">
-            <span className="eyebrow"><span className="num">08 /</span> MVP iterations</span>
+            <span className="eyebrow"><span className="num">09 /</span> MVP iterations</span>
             <h2 className="sect-title">Validated MVP, clear path to multi-cloud</h2>
             <p className="sect-lead">
               Six iterations took CNP from an empty backend to a deployed application URL. Cloud provisioning
@@ -420,7 +452,7 @@ export default function App() {
           {/* tech stack */}
           <Reveal className="sect-head" delay={40}>
             <div style={{ marginTop: 72 }}>
-              <span className="eyebrow"><span className="num">09 /</span> Technical stack</span>
+              <span className="eyebrow"><span className="num">10 /</span> Technical stack</span>
               <h2 className="sect-title">The platform stack</h2>
             </div>
           </Reveal>
@@ -443,7 +475,7 @@ export default function App() {
       <section id="demo">
         <div className="shell">
           <Reveal className="sect-head">
-            <span className="eyebrow"><span className="num">10 /</span> Demo proof</span>
+            <span className="eyebrow"><span className="num">11 /</span> Demo proof</span>
             <h2 className="sect-title">What the validated demo produced</h2>
             <p className="sect-lead">
               A single run, from GitHub authentication to a public URL served by AKS, captured as a deployment

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { PRODUCT_FLOW, STACK_TEMPLATES, type FlowKind } from "../data";
+import { PRODUCT_FLOW, STACK_TEMPLATES, MCP_SOURCES, type FlowKind } from "../data";
 import {
   IconUser, IconGear, IconGit, IconLink, IconAnalyze, IconBox, IconCloud,
   IconServer, IconDb, IconActions, IconBolt, IconArrow,
@@ -220,6 +220,41 @@ export function CDDiagram() {
         <Node label="Human approval" kind="approval" icon={<IconBolt />} note="required gate" />
         <ConnV />
         <Node label="CD Pull Request" kind="external" icon={<IconGit />} />
+      </div>
+    </div>
+  );
+}
+
+/* ======================================================
+   6. MCP DOCUMENTATION SERVER — docs Q&A
+   ====================================================== */
+export function MCPDiagram() {
+  return (
+    <div className="diagram">
+      <div className="diagram-bar">
+        <span className="diagram-title">MCP documentation server — sourced answers</span>
+        <Legend kinds={["external", "platform", "validated"]} />
+      </div>
+      <div className="branch-top">
+        <Node label="AI agent" kind="external" icon={<IconUser />} />
+        <ConnV />
+        <Node label="CNP docs MCP server" kind="platform" icon={<IconServer />} note="local documentation index" />
+        <ConnV />
+        <div className="decision"><span className="dq">?</span> Documentation sources</div>
+      </div>
+      <div className="branch-fan four">
+        {MCP_SOURCES.map((s) => (
+          <div className="branch-chip" key={s.path}>
+            <span className="stack">{s.path.split("/")[0]}</span>
+            <span className="arr" aria-hidden="true">↓</span>
+            <span className="tpl">{s.path.split("/").slice(1).join("/")}</span>
+          </div>
+        ))}
+      </div>
+      <div className="branch-top">
+        <div className="decision" style={{ borderStyle: "solid" }}>Sourced answer</div>
+        <ConnV />
+        <Node label="Explains API · frontend · CI/CD · secrets · k8s · troubleshooting" kind="validated" icon={<IconBolt />} />
       </div>
     </div>
   );

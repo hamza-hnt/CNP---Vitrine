@@ -22,6 +22,9 @@ it works, and what was validated end to end.
   exposed.
 - **Security** — the control model (JWT auth, GitHub installation tokens, human
   approvals, audit logs, etc.).
+- **MCP documentation server** — an MCP server that lets an AI agent
+  (e.g. Codex / Claude Code) explain and use CNP from its own docs — API, frontend,
+  CI/CD, secrets, Kubernetes and troubleshooting.
 - **Roadmap** — the 6 MVP iterations and what comes next (multi-cloud Azure / AWS /
   GCP), clearly separating what is validated from what is planned.
 - **Stack & demo** — the product's technical stack and a recap of the validated
